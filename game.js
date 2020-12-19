@@ -14,7 +14,7 @@ function nxt() {
   var rand = Math.floor(Math.random() * 4);
   correct.push(rand);console.log(correct);
   $("." + colour[rand]).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
-  audio = new Audio("sounds/" + colour[rand] + ".mp3");
+  audio = new Audio(colour[rand] + ".mp3");
   audio.play();
 }
 $(document).keydown(function() {
@@ -27,7 +27,7 @@ $(".btn").click(function() {
   if (game == 1) {
     var i = $(this).attr("id");
     $("." + colour[i]).addClass("pressed");
-    audio = new Audio("sounds/" + colour[i] + ".mp3");
+    audio = new Audio(colour[i] + ".mp3");
     audio.play();
     setTimeout(function() {
       $("." + colour[i]).removeClass("pressed");
@@ -42,7 +42,7 @@ $(".btn").click(function() {
     }, 100);
     if (correct[j] != i) {
       $("h1").text("Game over!! You reached level " + lvl + ".\n Press any key start again.");
-      audio = new Audio("sounds/wrong.mp3");
+      audio = new Audio("wrong.mp3");
       audio.play();
       j = 0;
       lvl = 0;
